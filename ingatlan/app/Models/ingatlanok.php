@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ingatlanok extends Model
 {
@@ -18,4 +19,8 @@ class ingatlanok extends Model
         'ar',
         'kepUrl'
     ];
+
+    public function getKategoriak(){
+        return $this->belongsTo(kategoriak::class, 'kategoria', 'id');;
+    }
 }
